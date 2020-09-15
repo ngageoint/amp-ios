@@ -1,0 +1,11 @@
+framework module AMP {
+  umbrella header "AMP.h"
+
+  export *
+  module * { export * }
+}
+
+module AMP.Swift {
+    header "AMP-Swift.h"
+    requires objc
+}

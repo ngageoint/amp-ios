@@ -1,0 +1,101 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AMP
+@_exported import AMP
+import CoreGraphics
+import CoreLocation
+import Foundation
+import LocalAuthentication
+import SafariServices
+import Security
+import Swift
+import SystemConfiguration
+import UIKit
+extension String : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+@objc public enum AmpEnvironment : ObjectiveC.NSInteger {
+  case TESTING = 0
+  case NGA_STAGE = 1
+  case NGA_IGAPP = 2
+  case NGA_PRODUCTION = 3
+  case CTI_DMZ = 4
+  public var stringValue: Swift.String {
+    get
+  }
+  public typealias RawValue = ObjectiveC.NSInteger
+  public init?(rawValue: ObjectiveC.NSInteger)
+  public var rawValue: ObjectiveC.NSInteger {
+    get
+  }
+}
+@objc public enum AmpLoginRequirement : ObjectiveC.NSInteger {
+  case ONCE = 0
+  case ALWAYS = 1
+  public var stringValue: Swift.String {
+    get
+  }
+  public typealias RawValue = ObjectiveC.NSInteger
+  public init?(rawValue: ObjectiveC.NSInteger)
+  public var rawValue: ObjectiveC.NSInteger {
+    get
+  }
+}
+@objc public enum AmpRatingsStatus : ObjectiveC.NSInteger {
+  case NONE = 0
+  case NEW = 1
+  case OLD = 2
+  public var stringValue: Swift.String {
+    get
+  }
+  public typealias RawValue = ObjectiveC.NSInteger
+  public init?(rawValue: ObjectiveC.NSInteger)
+  public var rawValue: ObjectiveC.NSInteger {
+    get
+  }
+}
+@objc public enum AmpRatingsResult : ObjectiveC.NSInteger {
+  case SUBMITTED = 0
+  case DISMISSED = 1
+  case NEVER_DISPLAY_AGAIN = 2
+  public var stringValue: Swift.String {
+    get
+  }
+  public typealias RawValue = ObjectiveC.NSInteger
+  public init?(rawValue: ObjectiveC.NSInteger)
+  public var rawValue: ObjectiveC.NSInteger {
+    get
+  }
+}
+public typealias AmpCompletion = () -> Swift.Void
+@_inheritsConvenienceInitializers @objc(Amp) public class Amp : ObjectiveC.NSObject {
+  @objc public class func start(with window: UIKit.UIWindow?, environment: AMP.AmpEnvironment, signature: Swift.String, completion: @escaping AMP.AmpCompletion)
+  @objc public class func oauthStart(_ url: Foundation.URL) -> Swift.Bool
+  @objc public class func getRatingsStatus() -> AMP.AmpRatingsStatus
+  @objc public class func displayRatingsPrompt(_ completion: @escaping (AMP.AmpRatingsResult) -> Swift.Void)
+  @objc public class func setUsagesBeforeRatingsPrompt(_ usages: Swift.Int)
+  @objc public class func getDeviceId() -> Swift.String?
+  @objc public class func getLoginId() -> Swift.String?
+  @objc public class func getUsageCount() -> Swift.Int
+  @objc public class func getVersionNumber() -> Swift.String
+  @objc public class func isNetworkAvailable() -> Swift.Bool
+  @objc public class func setLoginRequirement(_ loginRequirement: AMP.AmpLoginRequirement)
+  @objc public class func setAllowLicenseKeys(_ shouldAllowLicenseKeys: Swift.Bool)
+  @objc public class func reset()
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension AMP.AmpEnvironment : Swift.Equatable {}
+extension AMP.AmpEnvironment : Swift.Hashable {}
+extension AMP.AmpEnvironment : Swift.RawRepresentable {}
+extension AMP.AmpLoginRequirement : Swift.Equatable {}
+extension AMP.AmpLoginRequirement : Swift.Hashable {}
+extension AMP.AmpLoginRequirement : Swift.RawRepresentable {}
+extension AMP.AmpRatingsStatus : Swift.Equatable {}
+extension AMP.AmpRatingsStatus : Swift.Hashable {}
+extension AMP.AmpRatingsStatus : Swift.RawRepresentable {}
+extension AMP.AmpRatingsResult : Swift.Equatable {}
+extension AMP.AmpRatingsResult : Swift.Hashable {}
+extension AMP.AmpRatingsResult : Swift.RawRepresentable {}
