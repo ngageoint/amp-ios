@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-compiler-version: Apple Swift version 5.3.1 (swiftlang-1200.0.41 clang-1200.0.32.8)
 // swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AMP
 @_exported import AMP
 import CoreGraphics
@@ -11,6 +11,8 @@ import Security
 import Swift
 import SystemConfiguration
 import UIKit
+import os.log
+import os
 extension String : Foundation.LocalizedError {
   public var errorDescription: Swift.String? {
     get
@@ -21,7 +23,9 @@ extension String : Foundation.LocalizedError {
   case NGA_STAGE = 1
   case NGA_IGAPP = 2
   case NGA_PRODUCTION = 3
+  @available(*, deprecated, message: "This environment is no longer supported")
   case CTI_DMZ = 4
+  case AZURE_TEST = 5
   public var stringValue: Swift.String {
     get
   }
@@ -82,7 +86,9 @@ public typealias AmpCompletion = () -> Swift.Void
   @objc public class func getVersionNumber() -> Swift.String
   @objc public class func isNetworkAvailable() -> Swift.Bool
   @objc public class func setLoginRequirement(_ loginRequirement: AMP.AmpLoginRequirement)
+  @objc public class func getLoginRequirement() -> AMP.AmpLoginRequirement
   @objc public class func setAllowLicenseKeys(_ shouldAllowLicenseKeys: Swift.Bool)
+  @objc public class func getAllowLicenseKeys() -> Swift.Bool
   @objc public class func reset()
   @objc deinit
   @objc override dynamic public init()

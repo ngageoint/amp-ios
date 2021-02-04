@@ -1,3 +1,36 @@
+### Version 3.4.0 *(February, 2021)*
+
+##### Features
+* Added the ability to update the App version within AMP.
+* Added support for landscape format layouts.
+* Added automatic retrying of API calls if timeout occurs.
+* Added Amp.getLoginRequirement() to return the current setting value.
+* Added Amp.getAllowLicenseKeys() to return the current setting value.
+* Added AZURE environment configuration.
+
+##### Bugs Fixed/Improvements
+* Converted AMP to use Unified Logging and implemented relevant logging levels
+
+##### Upgrading from AMP 3.3 to AMP 3.4
+1. Add "Associated Domains" to your app’s entitlements to allow using saved passwords from the GEOINT App Store site:
+        a. Go into your app’s entitlements file.
+        b. Click the plus button to add a new row to "Entitlements File".
+        c. Select "Associated Domains" for the "Key" value
+        d. Change the "Type" to "Array" if not already
+        e. Click the disclosure triangle to expand out the array for the Associated Domains
+        f. Click plus to add a row to the array
+        g. Enter "webcredentials:apps.nga.mil" for the "Value" in the array
+    
+2. Add "LSApplicationQueriesSchemes" to your app’s plist to allow opening the GEOINT App Store app directly from your app:
+        a. Go into your app’s plist file
+        b. Click the plus button to add a new row to "Information Property List"
+        c. Change the "Type" to "Array" if not already
+        d. Click the disclosure triangle to expand out the array for the LSApplicationQueriesSchemes
+        e. Click plus to add a row to the array
+        f. Enter "mil.dod.nga.GEOINT.Applications.Store" for the "Value" in the array
+
+
+----------------------------------------------------------------
 ### Version 3.3.0 *(July 2, 2020)*
 
 ##### Build

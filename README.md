@@ -70,6 +70,38 @@ IsNetworkAvailable, GetVersionNumber, DisplayRatingsPrompt, GetLoginId, GetDevic
 '[OAuth completion block](#oauth-completion-block)' section of this document.
 4.  Change "AMP.RatingsStatus" to "Amp.GetRatingsStatus"
 
+## Upgrading from AMP 3.3 to AMP 3.4
+
+1. Add "Associated Domains" to your app’s entitlements to allow using saved passwords from the GEOINT App Store site:
+
+    a. Go into your app’s entitlements file.
+
+    b. Click the plus button to add a new row to "Entitlements File".
+
+    c. Select "Associated Domains" for the "Key" value
+
+    d. Change the "Type" to "Array" if not already
+
+    e. Click the disclosure triangle to expand out the array for the Associated Domains
+
+    f. Click plus to add a row to the array
+
+    g. Enter "webcredentials:apps.nga.mil" for the "Value" in the array
+    
+2. Add "LSApplicationQueriesSchemes" to your app’s plist to allow opening the GEOINT App Store app directly from your app:
+
+    a. Go into your app’s plist file
+
+    b. Click the plus button to add a new row to "Information Property List"
+
+    c. Change the "Type" to "Array" if not already
+
+    d. Click the disclosure triangle to expand out the array for the LSApplicationQueriesSchemes
+
+    e. Click plus to add a row to the array
+
+    f. Enter "mil.dod.nga.GEOINT.Applications.Store" for the "Value" in the array
+
 ## Implementing AMP in iOS
 
 1.  In the Signing & Capabilities tab of your target, enable Keychain Sharing and add "AMPGroup" to your list of groups.
