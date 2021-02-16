@@ -1,4 +1,4 @@
-### Version 3.4.0 *(February, 2021)*
+### Version 3.4.0 *(February 16, 2021)*
 
 ##### Features
 * Added the ability to update the App version within AMP.
